@@ -23,6 +23,18 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript">
+    function borrar(id) {
+        var r;
+        var l;
+        l = "<a href='?c=servicio&a=Eliminar&id=" + id + ">";
+        r = confirm('¿Seguro de eliminar el registro?');
+        if (r == true) {
+            window.location.href = '?c=servicio&a=Eliminar&gui=servicio&service_id=' + id;
+            return;
+        }
+    }
+    </script>
 </head>
 
 <body>
@@ -49,17 +61,17 @@
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand" href="dashboard.html">
+                    <a class="navbar-brand" href="./admin/index.php">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
-                            <img src="plugins/images/logo-icon.png" alt="homepage" />
+                            <img src="./admin/plugins/images/logo-icon.png" alt="homepage" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="plugins/images/logo-text.png" alt="homepage" />
+                            <img src="./admin/plugins/images/logo-text.png" alt="homepage" />
                         </span>
                     </a>
                     <!-- ============================================================== -->
@@ -88,22 +100,7 @@
                         <!-- ============================================================== -->
                         <!-- Search -->
                         <!-- ============================================================== -->
-                        <li class="in">
-                            <form role="search" class="app-search d-none d-md-block mr-3">
-                                <input type="text" placeholder="Search..." class="form-control mt-0" />
-                                <a href="" class="active">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </form>
-                        </li>
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
-                        <li>
-                            <a class="profile-pic" href="#">
-                                <img src="plugins/images/users/varun.jpg" alt="user-img" width="36"
-                                    class="img-circle" /><span class="text-white font-medium">Steave</span></a>
-                        </li>
+
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
@@ -125,19 +122,9 @@
                     <ul id="sidebarnav">
                         <!-- User Profile-->
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../index.php"
-                                aria-expanded="false"><i class="fas fa-clock fa-fw" aria-hidden="true"></i><span
-                                    class="hide-menu">Dashboard</span></a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.html"
-                                aria-expanded="false">
-                                <i class="fa fa-user" aria-hidden="true"></i><span class="hide-menu">Profile</span></a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="basic-table.html"
-                                aria-expanded="false"><i class="fa fa-table" aria-hidden="true"></i><span
-                                    class="hide-menu">Table</span></a>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="../altermamx/admin/index.php" aria-expanded="false"><i class="fas fa-clock fa-fw"
+                                    aria-hidden="true"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
                     </ul>
                 </nav>
@@ -184,18 +171,21 @@
                                             <td><?php echo $r->name; ?></td>
                                             <td><?php echo $r->description; ?></td>
                                             <td><?php echo $r->price; ?></td>
-                                            <td><button type="button" class="btn btn-primary"><svg
-                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
-                                                    </svg></button>
+                                            <td><a
+                                                    href="?c=servicio&a=Crud&gui=servicio&service_id=<?php echo $r->service_id; ?>"><button
+                                                        type="button" class="btn btn-primary" data-toggle="modal"
+                                                        data-target="#editarUsuario"><svg
+                                                            xmlns=" http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-pencil"
+                                                            viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                                                        </svg></button></a>
                                             </td>
                                             <td>
                                                 <button type="button" class="btn btn-danger"
-                                                    onclick="javascript:return confirm('¿Seguro de eliminar el servicio <?php echo $r->name; ?>?');"
-                                                    href="?c=servicio&a=Eliminar&service_id=<?php echo $r->service_id; ?>"><svg
-                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    onclick="borrar(<?php echo $r->service_id; ?>);">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                         fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                                         <path
                                                             d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
@@ -211,6 +201,51 @@
                         </div>
                     </div>
                 </div>
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#agregarServicio"
+                    href="../altermamx/Core.php?gui=servicio">Agregar
+                    Servicio
+                </button>
+                <button type="button" class="btn btn-success btn-lg"><a
+                        href="./admin/views/reports/servicesReport.php">Generate PDF</a></button>
+                <!-- Modal -->
+                <div id="agregarServicio" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content AGREGAR-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title text-center">Agregar Servicio</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form action="?c=servicio&a=Guardar&gui=servicio" method="POST">
+                                    <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" class="form-control" id="name" name="name"
+                                            placeholder="Enter name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description">Description:</label>
+                                        <input type="text" class="form-control" id="description"
+                                            placeholder="Enter description" name="description">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="price">Price:</label>
+                                        <input type="text" class="form-control" id="price" placeholder="Enter price"
+                                            name="price">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Agregar</button>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->

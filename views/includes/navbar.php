@@ -7,11 +7,11 @@
             <span class="bar"></span>
         </div>
         <ul class="navbar-menu">
-            <li class="navbar-item"><a href="<?php echo URLROOT; ?>/views/index.php" " class=" navbar-link">Home</a>
+            <li class="navbar-item"><a href="#home" class="navbar-link">Home</a>
             </li>
-            <li class="navbar-item"><a href="/" class="navbar-link">Services</a></li>
-            <li class="navbar-item"><a href="/" class="navbar-link">Events</a></li>
-            <li class="navbar-item"><a href="/" class="navbar-link">About</a>
+            <li class="navbar-item"><a href="#services-section" class="navbar-link">Services</a></li>
+            <li class="navbar-item"><a href="#events-section" class="navbar-link">Events</a></li>
+            <li class="navbar-item"><a href="#footer" class="navbar-link">About</a>
             <li class="navbar-btn"><a class="button" href="../Core.php?gui=usuario">Sign up</a></li>
         </ul>
     </div>

@@ -30,24 +30,24 @@ class modeloEvento
             die($e->getMessage());
         }
     }
-    public function Obtener($id)
+    public function Obtener($event_id)
     {
         try {
             $stm = $this->pdo->prepare("SELECT * FROM event WHERE event_id = ?");
 
-            $stm->execute(array($id));
+            $stm->execute(array($event_id));
             return $stm->fetch(PDO::FETCH_OBJ);
         } catch (Exception $e) {
             die($e->getMessage());
         }
     }
-    public function Eliminar($id)
+    public function Eliminar($event_id)
     {
         try {
             $stm = $this->pdo
                 ->prepare("DELETE FROM event WHERE event_id = ?");
 
-            $stm->execute(array($id));
+            $stm->execute(array($event_id));
         } catch (Exception $e) {
             die($e->getMessage());
         }

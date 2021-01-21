@@ -32,25 +32,25 @@ class modeloServicio
         }
     }
 
-    public function Obtener($id)
+    public function Obtener($service_id)
     {
         try {
             $stm = $this->pdo->prepare("SELECT * FROM service WHERE service_id = ?");
 
-            $stm->execute(array($id));
+            $stm->execute(array($service_id));
             return $stm->fetch(PDO::FETCH_OBJ);
         } catch (Exception $e) {
             die($e->getMessage());
         }
     }
 
-    public function Eliminar($id)
+    public function Eliminar($service_id)
     {
         try {
             $stm = $this->pdo
                 ->prepare("DELETE FROM service WHERE service_id = ?");
 
-            $stm->execute(array($id));
+            $stm->execute(array($service_id));
         } catch (Exception $e) {
             die($e->getMessage());
         }

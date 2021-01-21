@@ -24,25 +24,35 @@ class ControladorServicio
             $entidadServicio = $this->modelo->Obtener($_REQUEST['service_id']);
         }
 
-        require_once './views/header.php';
-        require_once './views/users/admin.php';
+        require_once './admin/views/updateServices.php';
     }
 
     public function Guardar()
     {
-        $entidadServicio = new modeloUsuario();
+        $entidadServicio = new modeloServicio();
 
         $entidadServicio->name  = $_REQUEST['name'];
         $entidadServicio->description  = $_REQUEST['description'];
         $entidadServicio->price    = $_REQUEST['price'];
 
         $this->modelo->Registrar($entidadServicio);
-        header('Location: ./views/users/login.php');
+        header('Location: ./Core.php?gui=servicio');
+    }
+    public function Actualizar()
+    {
+        $entidadServicio = new modeloServicio();
+        $entidadServicio->name = $_REQUEST['name'];
+        $entidadServicio->description  = $_REQUEST['description'];
+        $entidadServicio->price    = $_REQUEST['price'];
+        $entidadServicio->service_id = $_REQUEST['service_id'];
+
+        $this->modelo->Actualizar($entidadServicio);
+        header('Location: ./Core.php?gui=servicio');
     }
 
     public function Eliminar()
     {
         $this->modelo->Eliminar($_REQUEST['service_id']);
-        header('Location: ./core.php?gui=usuario');
+        header('Location: ./Core.php?gui=servicio');
     }
 }

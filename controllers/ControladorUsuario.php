@@ -21,12 +21,12 @@ class ControladorUsuario
     public function Crud()
     {
         $entidadUsuario = new modeloUsuario();
-        if (isset($_REQUEST['id'])) {
-            $entidadUsuario = $this->modelo->Obtener($_REQUEST['id']);
+        if (isset($_REQUEST['user_id'])) {
+            $entidadUsuario = $this->modelo->Obtener($_REQUEST['user_id']);
         }
 
-        require_once './views/header.php';
-        require_once './views/users/admin.php';
+        //require_once './views/header.php';
+        require_once './admin/views/updateUsers.php';
     }
 
     public function Guardar()
@@ -41,10 +41,20 @@ class ControladorUsuario
         $this->modelo->Registrar($entidadUsuario);
         header('Location: ./views/users/login.php');
     }
+    public function Actualizar()
+    {
+        $entidadUsuario = new modeloUsuario();
+        $entidadUsuario->name  = $_REQUEST['name'];
+        $entidadUsuario->email  = $_REQUEST['email'];
+        $entidadUsuario->password    = $_REQUEST['password'];
+        $entidadUsuario->user_id    = $_REQUEST['user_id'];
+        $this->modelo->Actualizar($entidadUsuario);
+        header('Location: ./Core.php?gui=administrador');
+    }
 
     public function Eliminar()
     {
         $this->modelo->Eliminar($_REQUEST['user_id']);
-        //header('Location: ./Core.php?c=usuario');
+        header('Location: ./Core.php?gui=administrador');
     }
 }

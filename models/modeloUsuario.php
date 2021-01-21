@@ -1,5 +1,6 @@
 <?php
 //echo 'Modelo Usuario';
+//require 'Database.php';
 class modeloUsuario
 {
 
@@ -34,33 +35,43 @@ class modeloUsuario
 		}
 	}
 
-	public function Obtener($id)
+	public function Obtener($user_id)
 	{
 		try {
 			$stm = $this->pdo->prepare("SELECT * FROM user WHERE user_id = ?");
 
-			$stm->execute(array($id));
+			$stm->execute(array($user_id));
 			return $stm->fetch(PDO::FETCH_OBJ);
 		} catch (Exception $e) {
 			die($e->getMessage());
 		}
 	}
-
-	public function Eliminar($id)
+	public function findUserByEmail($email)
 	{
-		echo 'Eliminar';
-		/*try {
+		$stm = $this->pdo->prepare('SELECT * FROM user WHERE email = ?');
+		$stm->execute($email);
+		// Check row
+		if ($stm->rowCount() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public function Eliminar($user_id)
+	{
+
+		try {
 			$stm = $this->pdo
 				->prepare("DELETE FROM user WHERE user.user_id = ?");
 
-			$stm->execute(array($id));
+			$stm->execute(array($user_id));
 		} catch (Exception $e) {
 			die($e->getMessage());
 		}
-		*/
 	}
 	public function Actualizar($data)
 	{
+
 		try {
 			$sql = "UPDATE user SET
 							  user.name = ?,

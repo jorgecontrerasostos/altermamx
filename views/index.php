@@ -3,13 +3,13 @@ include '../views/includes/header.php';
 ?>
 
 
-<main class="main">
+<main class="main" id="home">
     <div class="main-container">
         <div class="main-content">
             <h1>ALTERMA.MX</h1>
             <h2>A graphic design studio, with you in mind.</h2>
             <p>Be a brand above.</p>
-            <button class="main-btn"><a href="/">Know us.</a></button>
+            <button class="main-btn"><a href="/altermamx/views/pages/construction.php">Know us.</a></button>
         </div>
         <div class="main-image-container">
             <img class="main-img" id='main-img' src="<?php echo URLROOT; ?>/assets/images/design.jpg" alt="design">
@@ -43,68 +43,74 @@ include '../views/includes/header.php';
                         Us!</a></button>
             </div>
         </div>
-        <div class="event-container">
-            <h1 class="events-title">Events</h1>
-            <h3 class="year">2020</h3>
-            <div class="event">
-                <div class="event-left">
-                    <div class="event-date">
-                        <div class="date">8</div>
-                        <div class="month">Jan</div>
+        <div id="events-section">
+            <div class="event-container">
+                <h1 class="events-title">Events</h1>
+                <h3 class="year">2021</h3>
+                <div class="event">
+                    <div class="event-left">
+                        <div class="event-date">
+                            <div class="date">8</div>
+                            <div class="month">Jan</div>
+                        </div>
+                    </div>
+                    <div class="event-right">
+                        <h3 class="event-title">Conferencia Mensual</h3>
+                        <div class="event-description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ratione accusamus
+                            nisi,
+                            nulla
+                            dolore ducimus illo assumenda.
+                        </div>xs
+                        <div class="event-timing">
+                            <img src="../assets/images/time.png">16:00
+                        </div>
                     </div>
                 </div>
-                <div class="event-right">
-                    <h3 class="event-title">Conferencia Mensual</h3>
-                    <div class="event-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ratione accusamus nisi,
-                        nulla
-                        dolore ducimus illo assumenda.
+                <div class="event">
+                    <div class="event-left">
+                        <div class="event-date">
+                            <div class="date">8</div>
+                            <div class="month">Jan</div>
+                        </div>
                     </div>
-                    <div class="event-timing">
-                        <img src="<?php echo URLROOT; ?>/images/time.png">16:00
-                    </div>
-                </div>
-            </div>
-            <div class="event">
-                <div class="event-left">
-                    <div class="event-date">
-                        <div class="date">8</div>
-                        <div class="month">Jan</div>
-                    </div>
-                </div>
-                <div class="event-right">
-                    <h3 class="event-title">Conferencia Mensual</h3>
-                    <div class="event-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ratione accusamus nisi,
-                        nulla
-                        dolore ducimus illo assumenda.
-                    </div>
-                    <div class="event-timing">
-                        <img src="<?php echo URLROOT; ?>/images/time.png"> 10:00
+                    <div class="event-right">
+                        <h3 class="event-title">Conferencia Mensual</h3>
+                        <div class="event-description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ratione accusamus
+                            nisi,
+                            nulla
+                            dolore ducimus illo assumenda.
+                        </div>
+                        <div class="event-timing">
+                            <img src="../assets/images/time.png"> 10:00
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="event">
-                <div class="event-left">
-                    <div class="event-date">
-                        <div class="date">8</div>
-                        <div class="month">Jan</div>
+                <div class="event">
+                    <div class="event-left">
+                        <div class="event-date">
+                            <div class="date">8</div>
+                            <div class="month">Jan</div>
+                        </div>
                     </div>
-                </div>
-                <div class="event-right">
-                    <h3 class="event-title">Conferencia Mensual</h3>
-                    <div class="event-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ratione accusamus nisi,
-                        nulla
-                        dolore ducimus illo assumenda.
-                    </div>
-                    <div class="event-timing">
-                        <img src="<?php echo URLROOT; ?>/images/time.png"> 10:00
+                    <div class="event-right">
+                        <h3 class="event-title">Conferencia Mensual</h3>
+                        <div class="event-description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ratione accusamus
+                            nisi,
+                            nulla
+                            dolore ducimus illo assumenda.
+                        </div>
+                        <div class="event-timing justify-content-around">
+                            <img src="../assets/images/time.png"> 10:00
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="footer-container">
+        <div class="footer-container" id="footer">
             <div class="footer-links">
                 <div class="footer-link-wrapper">
                     <div class="footer-link-items">

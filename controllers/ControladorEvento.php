@@ -19,11 +19,10 @@ class ControladorEvento
     {
         $entidadEvento = new modeloEvento();
         if (isset($_REQUEST['event_id'])) {
-            $entidadUsuario = $this->modelo->Obtener($_REQUEST['event_id']);
+            $entidadEvento = $this->modelo->Obtener($_REQUEST['event_id']);
         }
 
-        //require_once './views/header.php';
-        //require_once './views/users/admin.php';
+        require_once './admin/views/updateEvents.php';
     }
     public function Guardar()
     {
@@ -33,9 +32,23 @@ class ControladorEvento
         $entidadEvento->description  = $_REQUEST['description'];
         $entidadEvento->venue    = $_REQUEST['venue'];
         $entidadEvento->date    = $_REQUEST['date'];
+        //$entidadEvento->event_id = $_REQUEST['event_id'];
 
         $this->modelo->Registrar($entidadEvento);
-        header('Location: ./views/users/login.php');
+        header('Location: ./Core.php?gui=evento');
+    }
+    public function Actualizar()
+    {
+        $entidadEvento = new modeloEvento();
+
+        $entidadEvento->name  = $_REQUEST['name'];
+        $entidadEvento->description  = $_REQUEST['description'];
+        $entidadEvento->venue    = $_REQUEST['venue'];
+        $entidadEvento->date    = $_REQUEST['date'];
+        $entidadEvento->event_id = $_REQUEST['event_id'];
+
+        $this->modelo->Actualizar($entidadEvento);
+        header('Location: ./Core.php?gui=evento');
     }
 
     public function Eliminar()
@@ -43,6 +56,6 @@ class ControladorEvento
         //echo $_REQUEST['user_id'] . 'eliminar';
         //exit();
         $this->modelo->Eliminar($_REQUEST['event_id']);
-        header('Location: ./Core.php?c=evento');
+        header('Location: ./Core.php?gui=evento');
     }
 }
